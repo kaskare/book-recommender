@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Recommender</title>
+</head>
+<body>
+    <h2>Enter a book title</h2>
+    <form method="post">
+        <input type="text" name="book_title" value="{{ query }}">
+        <input type="submit" value="search">
+    </form>
+
+    {% if recommendations %}
+        <h3>Recommendations:</h3>
+        <ul>
+        {% for title, score in recommendations %}
+            <li>{{ title }} (Score: {{ score }})</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
