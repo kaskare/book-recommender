@@ -7,3 +7,4 @@ pyspark
 torch
 torchmetrics
 flask
+kagglehub
