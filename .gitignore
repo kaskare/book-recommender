@@ -3,3 +3,4 @@ dataset/
 spark*
 .*
 src/old*
+model_weights/
