@@ -14,7 +14,7 @@
         <h3>Recommendations:</h3>
         <ul>
         {% for title, score in recommendations %}
-            <li>{{ title }} (Score: {{ score }})</li>
+            <li>{{ title }}: {{ score }}</li>
         {% endfor %}
         </ul>
     {% endif %}

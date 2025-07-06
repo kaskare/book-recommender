@@ -1,0 +1,10 @@
+{
+  "learning_rate": 1e-3,
+  "batch_size": 32,
+  "epochs": 50,
+  "input_dim": 128,
+  "age_intervals": [0, 12, 18, 25, 40, 1000],
+  "year_intervals": [0, 1950, 1980, 2000, 2010, 9999],
+  "data_path": "data/train.csv",
+  "model_save_path": ""
+}

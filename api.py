@@ -5,14 +5,12 @@ import numpy as np
 app = Flask(__name__, template_folder='templates')
 
 # Load model and mappings
-with open("models/svd_model/model.pkl", "rb") as f:
+with open("model_weights/svd_model/model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open("models/svd_model/title2inner.pkl", "rb") as f:
-    title2inner = pickle.load(f)
-
-with open("models/svd_model/inner2title.pkl", "rb") as f:
+with open("model_weights/svd_model/inner2title.pkl", "rb") as f:
     inner2title = pickle.load(f)
+    title2inner = {t: i for i, t in inner2title.items()}
 
 @app.route("/", methods=["GET", "POST"])
 def recommend():
