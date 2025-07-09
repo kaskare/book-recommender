@@ -8,3 +8,4 @@ torch
 torchmetrics
 flask
 kagglehub
+thefuzz

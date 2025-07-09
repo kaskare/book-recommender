@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Recommender</title>
+</head>
+<body>
+    <h2>Enter a book title</h2>
+    <form method="post">
+        <input type="text" name="book_title" value="{{ query }}">
+        <input type="submit" value="search">
+    </form>
+        <h2>Choose the model</h2>
+    <form method="post">
+        <label for="model">Choose a model:</label>
+        <select name="model" id="model">
+            <option value="svd" {% if model == "svd" %}selected{% endif %}>SVD </option>
+            <option value="ease" {% if model == "ease" %}selected{% endif %}>EASE </option>
+        </select>
+    </form>
+
+    {% if recommendations %}
+        <h3>Recommendations:</h3>
+        <ul>
+        {% for title in recommendations %}
+            <li>{{ title }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
