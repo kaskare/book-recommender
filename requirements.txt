@@ -2,6 +2,7 @@ numpy==1.24.3
 pandas
 flask
 thefuzz
+gunicorn
 #torch
 #scikit-surprise
 #matplotlib
