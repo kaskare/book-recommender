@@ -4,6 +4,9 @@ from thefuzz import process
 import pickle
 import numpy as np
 import pandas as pd
+import os
+import torch
+import requests
 
 app = Flask(__name__, template_folder='templates')
 
@@ -102,6 +105,11 @@ def get_recommendations_ease(book_title, B, df, score_cutoff=90, top_n=10):
     titles = df[df['ISBN'].isin(top_isbns)]['Book-Title'].unique().tolist()
     return titles
 
+
+@app.route("/health")
+def health():
+    return "API is running"
+
 if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)

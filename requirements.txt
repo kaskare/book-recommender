@@ -2,10 +2,10 @@ numpy==1.24.3
 pandas
 flask
 thefuzz
+torch
 #scikit-surprise
 #matplotlib
 #scikit-learn
 #pyspark
-#torch
 #torchmetrics
 #kagglehub
