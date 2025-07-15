@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from thefuzz import process
 
 import pickle
-import torch
 import numpy as np
 import pandas as pd
 
