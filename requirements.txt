@@ -2,7 +2,7 @@ numpy==1.24.3
 pandas
 flask
 thefuzz
-torch
+#torch
 #scikit-surprise
 #matplotlib
 #scikit-learn

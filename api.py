@@ -84,6 +84,7 @@ def get_recommendations_svd(book_title, model, title2inner, inner2title, top_n=1
     return recs[:top_n]
 
 @app.route("/", methods=["GET", "POST"])
+
 def get_recommendations_ease(book_title, B, df, score_cutoff=90, top_n=10):
     unique_titles = list(dict.fromkeys(df['Book-Title'].str.lower()))
     unique_isbns = df['ISBN'].unique().tolist()
@@ -98,9 +99,10 @@ def get_recommendations_ease(book_title, B, df, score_cutoff=90, top_n=10):
         return None
 
     inner_id = unique_isbns.index(matched_ISBNs.iloc[0])
-    top_indices = torch.topk(B[inner_id], top_n).indices
+    scores = B[inner_id]
+    
+    top_indices = np.argsort(scores)[-top_n:][::-1]
 
-    top_indices = top_indices.tolist() 
     top_isbns = [unique_isbns[i] for i in top_indices]
     titles = df[df['ISBN'].isin(top_isbns)]['Book-Title'].unique().tolist()
     return titles
