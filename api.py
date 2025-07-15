@@ -8,7 +8,6 @@ import pandas as pd
 
 app = Flask(__name__, template_folder='templates')
 
-# # Load model and mappings
 # with open("model_weights/svd/model.pkl", "rb") as f:
 #     svd_model = pickle.load(f)
 #
@@ -16,10 +15,31 @@ app = Flask(__name__, template_folder='templates')
 #     inner2title = pickle.load(f)
 #     title2inner = {t: i for i, t in inner2title.items()}
 
-with open("model_weights/ease/model_ease_imp_b10u3r100.pkl", "rb") as f:
+os.makedirs("model_weights/ease", exist_ok=True)
+
+model_fn = 'model_ease_imp_b10u3r100.pkl'
+df_fn = 'df_ease_imp_b10u3r100.pkl'
+base_url = 'https://wieryweghtjrmh.blob.core.windows.net/models/'
+sas_token = 'sp=r&st=2025-07-15T17:02:54Z&se=2025-08-01T01:17:54Z&spr=https&sv=2024-11-04&sr=b&sig=rWYB%2Fi3qnoLrr1u2plbB%2FwsVvU4KAhZLVmhzuMl49sc%3D'
+
+
+model_path = f"model_weights/ease/{model_fn}"
+model_url = f"{base_url}{model_fn}?{sas_token}"
+response = requests.get(model_url)
+with open(model_path, "wb") as f:
+    f.write(response.content)
+
+df_path = f"model_weights/ease/{df_fn}"
+df_url = f"{base_url}{df_fn}?{sas_token}"
+response = requests.get(df_url)
+with open(df_path, "wb") as f:
+    f.write(response.content)
+
+# Load df and model
+with open(model_path, "rb") as f:
     ease_model = pickle.load(f)
 
-with open("model_weights/ease/df_ease_imp_b10u3r100.pkl", "rb") as f:
+with open(df_path, "rb") as f:
     ease_dataframe = pickle.load(f)
 
 @app.route("/", methods=["GET", "POST"])
