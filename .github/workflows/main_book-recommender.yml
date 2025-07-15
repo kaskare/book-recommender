@@ -63,8 +63,15 @@ jobs:
         run: unzip release.zip
 
       
+      # - name: Login to Azure
+      #   uses: azure/login@v2
+      #   with:
+      #     client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_18003449F8E4441A8B2281ABFD00ACA5 }}
+      #     tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7B293E65E567467E9518B09C3FC685A9 }}
+      #     subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AE9B02842FA84790B250497F199C7480 }}
+
       - name: Login to Azure
-        uses: azure/login@v2
+        uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_47AD3AE602BE45A29960476E8F31E79A }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3B96712700E9422A91201189AFD7A8FD }}
@@ -76,4 +83,4 @@ jobs:
         with:
           app-name: 'book-recommender'
           slot-name: 'Production'
-          
+      
