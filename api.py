@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import os
 import requests
+import torch 
 
 app = Flask(__name__, template_folder='templates')
 
