@@ -4,3 +4,4 @@ spark*
 .*
 src/old*
 model_weights/
+venv/
