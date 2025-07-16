@@ -5,7 +5,6 @@ import pickle
 import numpy as np
 import pandas as pd
 import os
-import torch
 import requests
 
 app = Flask(__name__, template_folder='templates')
