@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import os
 import requests
-import torch 
 
 app = Flask(__name__, template_folder='templates')
 
@@ -19,10 +18,10 @@ app = Flask(__name__, template_folder='templates')
 
 os.makedirs("model_weights/ease", exist_ok=True)
 
-model_fn = 'model_ease_imp_b10u3r100.pkl'
+model_fn = 'model_ease_imp_b10u3r100_np.pkl'
 df_fn = 'df_ease_imp_b10u3r100.pkl'
 base_url = 'https://wieryweghtjrmh.blob.core.windows.net/models/'
-sas_token = 'sp=r&st=2025-07-15T17:02:54Z&se=2025-08-01T01:17:54Z&spr=https&sv=2024-11-04&sr=b&sig=rWYB%2Fi3qnoLrr1u2plbB%2FwsVvU4KAhZLVmhzuMl49sc%3D'
+sas_token = 'sp=r&st=2025-07-16T12:07:14Z&se=2025-07-31T20:22:14Z&spr=https&sv=2024-11-04&sr=c&sig=QGpmZ0sWP049cMvab9XNyrexcTYGVUyVAh37tv24tMc%3D'
 
 
 model_path = f"model_weights/ease/{model_fn}"

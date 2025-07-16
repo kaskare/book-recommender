@@ -4,7 +4,7 @@ flask
 thefuzz
 gunicorn
 requests
-torch
+#torch
 #scikit-surprise
 #matplotlib
 #scikit-learn
