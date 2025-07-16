@@ -76,4 +76,5 @@ jobs:
         with:
           app-name: 'recommender-webapp'
           slot-name: 'Production'
+          package: '.'
           
